@@ -1,0 +1,45 @@
+#simply for reading fasta files
+#read genome1
+def readGenome(filename):
+    genome1 = ''
+    with open(filename, 'r') as f:
+        for line in f:
+            if not line[0] == '>':
+                genome1 += line.rstrip()
+    return genome1
+genome1 = readGenome('LAT-001Q_Ref.fa')
+genome1[:100]
+
+#read genome2
+def readGenome(filename):
+    genome2 = ''
+    with open(filename, 'r') as f:
+        for line in f:
+            if not line[0] == '>':
+                genome2 += line.rstrip()
+    return genome2
+genome2 = readGenome('LAT-002Q_Ref.fa')
+genome2[:100]
+
+#counting AGTC
+counts = {'A': 0, 'G': 0, 'T': 0, 'C': 0}
+for base in genome1:
+    counts[base] += 1
+print(counts)
+
+#longest common prefix
+def longestCommonPrefix(genom1, genom2):
+    i = 0
+    while i < len(genom1) and i < len(genom2) and genom1[i] == genom2[i]:
+        i += 1
+    return genom1[:i]
+longestCommonPrefix('ATTTCTTT', 'ATTTTGTT')
+
+#reverse compliment
+def reverseCompliment(s):
+    complement = {'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A'}
+    t = ''
+    for base in s:
+        t = complement[base] + t
+    return t
+reverseCompliment('')
