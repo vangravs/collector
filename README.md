@@ -1,2 +1,2 @@
-# The_collector
-collection of scripts
+# collector
+various usefull pieces of code
